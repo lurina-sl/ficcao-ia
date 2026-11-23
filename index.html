@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FicçãoIA — aprenda a criar com IA</title>
+<meta name="description" content="Aprenda IA, prompts, VS Code, Git, GitHub e Vercel com missões, quiz e XP.">
+<meta name="theme-color" content="#04120d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FicçãoIA">
+<meta property="og:title" content="FicçãoIA — aprenda a criar com IA">
+<meta property="og:description" content="Prompts, programar com IA, Git, GitHub e Vercel, com missões e XP.">
+<meta property="og:url" content="https://ficcaoia.vercel.app/">
+<meta property="og:image" content="https://ficcaoia.vercel.app/banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<link rel="canonical" href="https://ficcaoia.vercel.app/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<!-- Google Search Console: cole aqui a meta tag de verificação que o Google te der -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"FicçãoIA","url":"https://ficcaoia.vercel.app/","inLanguage":"pt-BR","description":"Aprenda IA, prompts, programar com IA, Git, GitHub e Vercel com missões, quiz e XP."}</script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FicçãoIA — aprenda a criar com IA">
+<meta name="twitter:image" content="https://ficcaoia.vercel.app/banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#04120d; --bg2:#08201a; --line:#14392e; --text:#ffffff; --muted:#a8c4ba;
+  --em:#10b981; --em-d:#047857; --on-em:#02140d; --code:#020b08;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){--bg:#ffffff;--bg2:#effaf5;--line:#c9e8db;--text:#052e22;--muted:#3d6a5b;--em:#059669;--em-d:#047857;--on-em:#ffffff;--code:#052e22}
+}
+:root[data-theme="light"]{--bg:#ffffff;--bg2:#effaf5;--line:#c9e8db;--text:#052e22;--muted:#3d6a5b;--em:#059669;--em-d:#047857;--on-em:#ffffff;--code:#052e22}
+:root[data-theme="dark"]{--bg:#04120d;--bg2:#08201a;--line:#14392e;--text:#ffffff;--muted:#a8c4ba;--em:#10b981;--em-d:#047857;--on-em:#02140d;--code:#020b08}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","IBM Plex Sans",sans-serif;line-height:1.08;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;flex-wrap:wrap}
+.logo{font:800 24px "Bricolage Grotesque",sans-serif;text-decoration:none;letter-spacing:-.03em}
+.logo b{color:var(--em)}
+nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-size:15px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover,nav a:focus-visible{color:var(--text)}
+button{font:inherit;cursor:pointer}
+.theme{background:none;border:1px solid var(--line);color:var(--text);border-radius:99px;padding:5px 12px;font-size:14px}
+:focus-visible{outline:2px solid var(--em);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;padding:56px 0 72px}
+.hero h1{font-size:clamp(38px,5.6vw,66px);font-weight:800}
+.hero h1 span{color:var(--em)}
+.hero p.lead{color:var(--muted);font-size:19px;max-width:46ch;margin:22px 0 28px}
+.btn{display:inline-block;background:var(--em);color:var(--on-em);font-weight:600;padding:13px 24px;border-radius:10px;text-decoration:none;border:0}
+.btn:hover{background:var(--text);color:var(--bg)}
+.btn.ghost{background:none;color:var(--text);border:1px solid var(--line);margin-left:8px}
+.btn.ghost:hover{border-color:var(--em);background:none;color:var(--text)}
+.builder{background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:22px}
+.builder h2{font-size:20px;margin-bottom:4px}
+.builder small{color:var(--muted);display:block;margin-bottom:14px;font-size:14px}
+.field{display:block;margin-bottom:10px}
+.field span{font-size:14px;font-weight:600}
+.field span em{font-style:normal;color:var(--muted);font-weight:400}
+input,textarea{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px 11px;font:inherit;font-size:15px}
+input:focus,textarea:focus{border-color:var(--em);outline:none}
+.out{background:var(--code);color:#ecfdf5;border-radius:10px;padding:14px;font-size:14px;white-space:pre-wrap;min-height:84px;margin:12px 0}
+.copy{background:var(--em);color:var(--on-em);border:0;border-radius:8px;padding:8px 16px;font-weight:600;font-size:14px}
+.copy:hover{background:var(--text);color:var(--bg)}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section>.wrap>h2{font-size:clamp(28px,4vw,42px);max-width:20ch}
+section>.wrap>p.sub{color:var(--muted);max-width:60ch;margin:14px 0 34px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card h3{font-size:22px;margin-bottom:8px}
+.card p{margin:0 0 12px;color:var(--muted);font-size:16px}
+.card ul{margin:0;padding-left:20px;font-size:16px}
+.card li{margin:6px 0}
+.tag{display:inline-block;background:var(--em);color:var(--on-em);font-weight:600;font-size:13px;padding:2px 10px;border-radius:99px;margin-bottom:12px}
+.pcm{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.pcm div{border-left:3px solid var(--em);padding:4px 0 4px 12px}
+.pcm b{display:block;font:700 19px "Bricolage Grotesque",sans-serif}
+.pcm span{color:var(--muted);font-size:15px}
+.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:14px}
+.steps>li{counter-increment:s;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px 22px 20px 70px;position:relative}
+.steps>li::before{content:counter(s);position:absolute;left:20px;top:18px;width:36px;height:36px;border-radius:50%;background:var(--em);color:var(--on-em);display:grid;place-items:center;font:700 18px "Bricolage Grotesque",sans-serif}
+.steps h3{font-size:20px;margin-bottom:4px}
+.steps p{margin:0 0 10px;color:var(--muted);font-size:16px}
+pre{background:var(--code);color:#ecfdf5;border-radius:10px;padding:12px 14px;margin:0 0 8px;overflow-x:auto;font:14px/1.6 ui-monospace,Menlo,Consolas,monospace}
+.cmd{display:flex;gap:8px;align-items:stretch;margin-bottom:8px}
+.cmd pre{flex:1;margin:0}
+.cmd button{background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:0 12px;font-size:13px}
+.cmd button:hover{border-color:var(--em)}
+details{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);margin:10px 0 0;font-size:16px}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:15px}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;padding-top:30px}
+  .grid{grid-template-columns:1fr}
+  .pcm{grid-template-columns:1fr 1fr}
+  .btn.ghost{margin:10px 0 0}
+}
+body{overflow-x:clip}
+.hero{grid-template-columns:1.1fr .9fr;padding:34px 0 28px}
+@media (max-width:820px){.hero{grid-template-columns:1fr}}
+.term{background:var(--code);border:1px solid var(--line);border-radius:14px;color:#ecfdf5;overflow:hidden;box-shadow:0 24px 60px -24px rgba(16,185,129,.45);animation:up .8s .3s cubic-bezier(.2,.7,.2,1) backwards}
+.tb{display:flex;gap:6px;align-items:center;padding:10px 14px;border-bottom:1px solid #14392e;font-size:13px;color:#a8c4ba}
+.tb i{width:10px;height:10px;border-radius:50%;background:var(--em);opacity:.55;display:inline-block}
+.tb i+i{opacity:.35}.tb i+i+i{opacity:.2;margin-right:6px}
+.term pre{margin:0;padding:16px;min-height:236px;white-space:pre-wrap;background:none;border-radius:0}
+.term pre::after{content:"\258C";color:var(--em);animation:blink 1s steps(2) infinite}
+.prog{margin:0 0 22px}
+.pt{font-weight:600;margin-bottom:8px}
+.pb{height:10px;background:var(--bg2);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.pb i{display:block;height:100%;width:0;background:var(--em);transition:width .5s ease}
+.done-btn{margin-top:6px;background:none;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:6px 14px;font-size:14px}
+.done-btn:hover{border-color:var(--em)}
+.steps>li.done{border-color:var(--em)}
+.steps>li.done::before{content:"\2713"}
+.pcard pre{white-space:pre-wrap;font:15px/1.55 "IBM Plex Sans",sans-serif}
+.xp{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600}
+.xp .pb{width:72px;height:8px;display:inline-block}
+.xp small{color:var(--muted);font-weight:500}
+.toasts{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));display:grid;gap:8px;z-index:99;pointer-events:none}
+.toast{background:var(--em);color:var(--on-em);padding:10px 16px;border-radius:10px;font-weight:600;animation:up .3s backwards}
+.cf{position:fixed;left:50%;top:40%;width:9px;height:9px;border-radius:2px;z-index:99;pointer-events:none;animation:fly 1s ease-out forwards}
+@keyframes fly{to{transform:translate(var(--x),var(--y)) rotate(540deg);opacity:0}}
+.opt{display:block;width:100%;text-align:left;background:var(--bg);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:12px 14px;margin:8px 0;transition:border-color .2s,transform .2s}
+.opt:hover:not(:disabled){border-color:var(--em);transform:translateX(4px)}
+.opt.ok{background:var(--em);color:var(--on-em);border-color:var(--em)}
+.opt.no{border-color:#f87171;opacity:.7}
+.tip{color:var(--muted);margin:12px 0}
+.mis.fin{border-color:var(--em)}
+.gl{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.gl div{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:15px;color:var(--muted)}
+.gl b{color:var(--em);display:block;font-size:16px}
+@media (max-width:820px){.gl{grid-template-columns:1fr}}
+.hero h1{max-width:18ch}
+section{padding:32px 0 52px;border-top:0}
+section[hidden]{display:none}
+.tabsw{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{background:none;border:0;color:var(--muted);padding:9px 17px;border-radius:99px;white-space:nowrap;font-weight:500;transition:background .2s,color .2s}
+.tab:hover{color:var(--text);background:var(--bg2)}
+.tab[aria-selected="true"]{background:var(--em);color:var(--on-em);font-weight:600}
+.builder{max-width:640px;margin:0 0 34px}
+.hero{position:relative}
+.hero::before{content:"";position:absolute;width:440px;height:440px;right:-90px;top:10px;border-radius:50%;background:radial-gradient(circle,var(--em) 0%,transparent 65%);opacity:.2;filter:blur(30px);animation:drift 12s ease-in-out infinite alternate;z-index:-1;pointer-events:none}
+.hero h1,.hero p.lead,.hero .btn,.builder{animation:up .8s cubic-bezier(.2,.7,.2,1) backwards}
+.hero p.lead{animation-delay:.15s}
+.hero .btn{animation-delay:.3s}
+.hero .btn.ghost{animation-delay:.4s}
+.builder{animation-delay:.25s,0s;animation-name:up,glow;animation-duration:.8s,4s;animation-iteration-count:1,infinite;animation-timing-function:cubic-bezier(.2,.7,.2,1),ease-in-out;animation-fill-mode:backwards,none}
+.hero h1 span{background:linear-gradient(90deg,var(--em),#6ee7b7,var(--em));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite}
+.out::after{content:"\258C";color:var(--em);animation:blink 1s steps(2) infinite}
+.logo b{display:inline-block;transition:transform .3s}
+.logo:hover b{transform:rotate(-8deg) scale(1.15)}
+.card{transition:transform .25s ease,border-color .25s ease}
+.card:hover{transform:translateY(-5px);border-color:var(--em)}
+.btn,.copy{transition:transform .2s ease,background .2s ease}
+.btn:hover,.copy:hover{transform:translateY(-2px)}
+.btn:active,.copy:active{transform:scale(.97)}
+.pcm div{transition:border-color .25s,padding-left .25s}
+.pcm div:hover{padding-left:20px;border-color:var(--text)}
+.js .rv{opacity:0}
+.js .rv.in{opacity:1;animation:up .7s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:var(--d,0s)}
+.js .steps>li.in::before{animation:pop .5s cubic-bezier(.3,1.6,.5,1) .2s backwards}
+details[open] p{animation:up .35s ease backwards}
+@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,50px) scale(1.2)}}
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}50%{box-shadow:0 0 38px 0 rgba(16,185,129,.28)}}
+@keyframes shine{to{background-position:-200% 0}}
+@keyframes blink{50%{opacity:0}}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <a class="logo" href="#topo">Ficção<b>IA</b></a>
+  <nav aria-label="Principal">
+    
+    <button class="theme" id="theme" type="button" aria-label="Alternar tema claro e escuro">Tema</button>
+  </nav>
+</header>
+
+<div class="hero" id="topo">
+  <div>
+    <h1>Aprenda a criar com IA, do primeiro prompt ao <span>site no ar</span>.</h1>
+    <p class="lead">Aulas diretas para quem está começando: como conversar com a IA, programar com ela, instalar skills e plugins, usar VS Code, Git, GitHub e publicar na Vercel.</p>
+    <a class="btn" href="#ia">Começar agora</a><a class="btn ghost" href="#roteiro">Ver o roteiro completo</a>
+  </div>
+  <div class="term" aria-hidden="true"><div class="tb"><i></i><i></i><i></i>meu-primeiro-site</div><pre id="termout"></pre></div>
+  <div class="builder" aria-label="Montador de prompt">
+    <h2>Monte seu primeiro prompt</h2>
+    <small>Preencha e copie. Funciona no Claude, no ChatGPT e em qualquer IA.</small>
+    <label class="field"><span>Papel <em>(quem a IA deve ser)</em></span><input id="p" value="Você é um designer de sites experiente."></label>
+    <label class="field"><span>Contexto <em>(situação e público)</em></span><input id="c" value="Tenho uma padaria em Recife e quero atrair clientes do bairro."></label>
+    <label class="field"><span>Tarefa <em>(uma coisa só)</em></span><input id="t" value="Crie a página inicial do site em HTML e CSS."></label>
+    <label class="field"><span>Formato <em>(como quer receber)</em></span><input id="f" value="Um único arquivo index.html, com comentários simples."></label>
+    <label class="field"><span>Restrições <em>(limites)</em></span><input id="r" value="Tom acolhedor, sem jargões, funcionar bem no celular."></label>
+    <div class="out" id="out" aria-live="polite"></div>
+    <button class="copy" id="copyp" type="button">Copiar prompt</button>
+  </div>
+</div>
+</div>
+
+<div class="tabsw"><div class="wrap"><div class="tabs" role="tablist" id="tabbar">
+  <button class="tab" role="tab" data-tab="ia">IA e prompts</button>
+  <button class="tab" role="tab" data-tab="codar">Programar com IA</button>
+  <button class="tab" role="tab" data-tab="skills">Skills e plugins</button>
+  <button class="tab" role="tab" data-tab="apps">Apps</button>
+  <button class="tab" role="tab" data-tab="sites">Sites</button>
+  <button class="tab" role="tab" data-tab="prompts">Biblioteca de prompts</button>
+  <button class="tab" role="tab" data-tab="roteiro">Roteiro</button>
+  <button class="tab" role="tab" data-tab="faq">Perguntas</button>
+</div></div></div>
+<section id="ia"><div class="wrap">
+  <h2>Mexer com IA e fazer bons prompts</h2>
+  <p class="sub">A IA responde ao que você pede. Quanto mais claro o pedido, melhor o resultado. Use a fórmula P-C-T-F-R sempre que for pedir algo.</p>
+  <div class="pcm">
+    <div><b>Papel</b><span>Quem a IA deve ser</span></div>
+    <div><b>Contexto</b><span>Situação e público</span></div>
+    <div><b>Tarefa</b><span>Uma coisa bem definida</span></div>
+    <div><b>Formato</b><span>Como quer receber</span></div>
+    <div><b>Restrições</b><span>Limites e o que evitar</span></div>
+  </div>
+  <div class="grid" style="margin-top:30px">
+    <div class="card"><h3>Hábitos que melhoram tudo</h3><ul>
+      <li>Peça uma coisa por vez e evolua em etapas.</li>
+      <li>Dê exemplos do que você gosta e do que não gosta.</li>
+      <li>Se o resultado vier ruim, diga o que mudar em vez de recomeçar.</li>
+      <li>Peça para a IA explicar o que fez. Assim você aprende.</li>
+    </ul></div>
+    <div class="card"><h3>Erros comuns</h3><ul>
+      <li>Pedido vago, como “faça um site bonito”.</li>
+      <li>Vários pedidos misturados numa mensagem só.</li>
+      <li>Confiar sem testar: sempre rode e confira o resultado.</li>
+      <li>Colar senhas, chaves de API ou dados pessoais no chat.</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="codar"><div class="wrap">
+  <h2>Programar com IA</h2>
+  <p class="sub">Você descreve o que quer, a IA escreve o código e você revisa. Existem três jeitos de trabalhar, do mais simples ao mais profissional.</p>
+  <div class="grid">
+    <div class="card"><span class="tag">Iniciante</span><h3>No chat</h3><p>Peça o código, copie para um arquivo e teste. Ótimo para os primeiros projetos e para tirar dúvidas.</p><ul><li>Peça o código completo, não só trechos.</li><li>Cole o erro inteiro quando algo falhar.</li></ul></div>
+    <div class="card"><span class="tag">Intermediário</span><h3>No editor (VS Code)</h3><p>Abra a pasta do projeto no VS Code e use a IA ao lado dos seus arquivos, com o contexto do projeto.</p><ul><li>Peça mudanças pequenas e revise cada uma.</li><li>Use o Git para poder desfazer.</li></ul></div>
+    <div class="card"><span class="tag">Profissional</span><h3>No terminal (Claude Code)</h3><p>O Claude Code lê seu projeto, cria e edita arquivos e roda comandos por você, sempre pedindo permissão.</p><ul><li>Entre na pasta e digite <code>claude</code>.</li><li>Descreva o objetivo, depois revise o que ele fez.</li></ul></div>
+    <div class="card"><h3>Seu ciclo de trabalho</h3><p>Todo projeto segue o mesmo ritmo.</p><ul><li>Descreva o que quer.</li><li>Rode e teste.</li><li>Corrija com um novo pedido.</li><li>Salve com um commit.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills, plugins e conectores</h2>
+  <p class="sub">São extensões que ensinam o Claude a fazer tarefas específicas ou a falar com outras ferramentas. Cada uma tem um papel diferente.</p>
+  <div class="grid">
+    <div class="card"><h3>Skill</h3><p>Uma pasta de instruções que ensina um jeito de trabalhar, como seguir o padrão de código do seu time ou criar slides. O Claude usa quando a tarefa combina.</p></div>
+    <div class="card"><h3>Plugin</h3><p>Um pacote que reúne skills, comandos e conexões. Instalar um plugin é o jeito mais rápido de ganhar vários recursos de uma vez.</p></div>
+    <div class="card"><h3>Conector (MCP)</h3><p>Liga o Claude a serviços como GitHub, Notion ou Google Drive, para ele ler e agir onde seu trabalho já está.</p></div>
+    <div class="card"><h3>Plugins para começar no Claude Code</h3><ul><li><strong>Superpowers</strong>: plano, spec e testes antes de codar.</li><li><strong>Context7</strong>: documentação atualizada das bibliotecas.</li><li><strong>code-review</strong>: revisão automática das mudanças.</li><li><strong>GitHub</strong>: issues e PRs dentro da sessão.</li></ul></div>
+  </div>
+  <p class="sub" style="margin:26px 0 10px">Instalar um plugin no Claude Code leva dois comandos:</p>
+  <div class="cmd"><pre>/plugin marketplace add obra/superpowers-marketplace</pre><button type="button" data-copy="/plugin marketplace add obra/superpowers-marketplace">Copiar</button></div>
+  <div class="cmd"><pre>/plugin install superpowers@superpowers-marketplace</pre><button type="button" data-copy="/plugin install superpowers@superpowers-marketplace">Copiar</button></div>
+  <p class="sub" style="margin-top:12px">Instale poucos plugins. Cada um ocupa espaço na memória de trabalho da IA, então comece com três ou quatro.</p>
+</div></section>
+
+<section id="apps"><div class="wrap">
+  <h2>Mexer com apps: VS Code, Git e GitHub</h2>
+  <p class="sub">Três ferramentas que quase todo programador usa. O VS Code edita, o Git guarda o histórico e o GitHub guarda tudo na nuvem.</p>
+  <div class="grid">
+    <div class="card"><h3>VS Code</h3><p>O editor onde você abre e lê seus arquivos.</p><ul><li>Instale em code.visualstudio.com.</li><li>Use <em>Arquivo → Abrir Pasta</em> para abrir o projeto.</li><li>O terminal fica em <em>Terminal → Novo Terminal</em>.</li><li>Instale a extensão do Claude Code para usá-lo ao lado do código.</li></ul></div>
+    <div class="card"><h3>Git</h3><p>Guarda versões do seu projeto, como pontos de salvamento de um jogo.</p><ul><li><strong>commit</strong>: salva uma versão com uma mensagem.</li><li><strong>branch</strong>: uma linha paralela para testar sem risco.</li><li><strong>push</strong>: envia suas versões para o GitHub.</li></ul></div>
+    <div class="card"><h3>GitHub</h3><p>Site onde seu código fica guardado, compartilhável e à vista no seu portfólio.</p><ul><li>Crie uma conta em github.com.</li><li><strong>Repositório</strong>: a pasta do projeto na nuvem.</li><li><strong>Issue</strong>: uma tarefa ou um problema anotado.</li><li><strong>Pull request</strong>: um pedido para juntar mudanças.</li></ul></div>
+    <div class="card"><h3>Primeira configuração do Git</h3><div class="cmd"><pre>git config --global user.name "Seu Nome"</pre><button type="button" data-copy='git config --global user.name "Seu Nome"'>Copiar</button></div><div class="cmd"><pre>git config --global user.email "voce@email.com"</pre><button type="button" data-copy='git config --global user.email "voce@email.com"'>Copiar</button></div><p>Faça isso uma vez só por computador.</p></div>
+  </div>
+</div></section>
+
+<section id="sites"><div class="wrap">
+  <h2>Mexer com sites: GitHub e Vercel</h2>
+  <p class="sub">Seu site precisa de um endereço na internet. O GitHub guarda o código e a Vercel publica, gerando um link .vercel.app grátis.</p>
+  <div class="grid">
+    <div class="card"><h3>GitHub</h3><p>Guarda e versiona o código. Também permite publicar páginas simples pelo GitHub Pages.</p></div>
+    <div class="card"><h3>Vercel</h3><p>Pega o código do GitHub e coloca no ar. Cada vez que você envia uma mudança, o site atualiza sozinho.</p></div>
+  </div>
+</div></section>
+
+<section id="roteiro"><div class="wrap">
+  <h2>Roteiro: do zero ao site no ar</h2>
+  <p class="sub">Siga na ordem. Em cada passo, se algo der erro, copie a mensagem inteira e peça ajuda à IA.</p>
+  <ol class="steps">
+    <li><h3>Crie o projeto com a IA</h3><p>Use o prompt que você montou lá em cima e salve o resultado como <code>index.html</code> numa pasta nova.</p></li>
+    <li><h3>Abra no VS Code e teste</h3><p>Abra a pasta e dê dois cliques no <code>index.html</code> para ver no navegador. Peça ajustes à IA até gostar.</p></li>
+    <li><h3>Guarde a versão com Git</h3><p>No terminal do VS Code, dentro da pasta:</p>
+      <div class="cmd"><pre>git init</pre><button type="button" data-copy="git init">Copiar</button></div>
+      <div class="cmd"><pre>git add .</pre><button type="button" data-copy="git add .">Copiar</button></div>
+      <div class="cmd"><pre>git commit -m "primeira versão"</pre><button type="button" data-copy='git commit -m "primeira versão"'>Copiar</button></div></li>
+    <li><h3>Envie para o GitHub</h3><p>Crie um repositório vazio em github.com e copie o endereço dele. Depois rode, trocando pelo seu endereço:</p>
+      <div class="cmd"><pre>git branch -M main</pre><button type="button" data-copy="git branch -M main">Copiar</button></div>
+      <div class="cmd"><pre>git remote add origin https://github.com/SEU-USUARIO/meu-site.git</pre><button type="button" data-copy="git remote add origin https://github.com/SEU-USUARIO/meu-site.git">Copiar</button></div>
+      <div class="cmd"><pre>git push -u origin main</pre><button type="button" data-copy="git push -u origin main">Copiar</button></div></li>
+    <li><h3>Publique na Vercel</h3><p>Entre em vercel.com com sua conta do GitHub, clique em <em>Add New → Project</em>, escolha o repositório e clique em <em>Deploy</em>. Em cerca de um minuto você recebe um link .vercel.app para compartilhar.</p></li>
+    <li><h3>Atualize quando quiser</h3><p>Peça a mudança à IA, teste e envie. A Vercel publica a nova versão sozinha:</p>
+      <div class="cmd"><pre>git add . &amp;&amp; git commit -m "atualização" &amp;&amp; git push</pre><button type="button" data-copy='git add . && git commit -m "atualização" && git push'>Copiar</button></div></li>
+  </ol>
+</div></section>
+
+<section id="prompts"><div class="wrap">
+  <h2>Biblioteca de prompts prontos</h2>
+  <p class="sub">Copie, troque o que estiver em letras maiúsculas pelo seu caso e envie para a IA.</p>
+  <div class="grid">
+    <div class="card pcard"><h3>Criar um site</h3><div class="cmd"><pre>Você é um designer de sites experiente. Crie a página inicial de um site para MEU NEGÓCIO, com público de TIPO DE CLIENTE. Entregue um único arquivo index.html com HTML e CSS, bom no celular, tom simples e acolhedor.</pre><button type="button">Copiar</button></div></div>
+    <div class="card pcard"><h3>Criar um jogo</h3><div class="cmd"><pre>Crie um jogo simples em um único arquivo index.html onde TIPO DE PERSONAGEM desvia de obstáculos. A velocidade aumenta a cada 10 pontos. Mostre a pontuação e um botão de reiniciar.</pre><button type="button">Copiar</button></div></div>
+    <div class="card pcard"><h3>Corrigir um erro</h3><div class="cmd"><pre>Estou fazendo O QUE VOCÊ ESTAVA FAZENDO e apareceu este erro: COLE A MENSAGEM INTEIRA. Explique a causa em linguagem simples e mostre a correção passo a passo.</pre><button type="button">Copiar</button></div></div>
+    <div class="card pcard"><h3>Entender um código</h3><div class="cmd"><pre>Explique este código como se eu fosse iniciante, parte por parte, e diga o que cada trecho faz: COLE O CÓDIGO.</pre><button type="button">Copiar</button></div></div>
+    <div class="card pcard"><h3>Melhorar um texto de anúncio</h3><div class="cmd"><pre>Você é redator de anúncios. Reescreva este texto para PÚBLICO em até 40 palavras, com um título forte e uma chamada para ação clara. Entregue 3 versões diferentes.</pre><button type="button">Copiar</button></div></div>
+    <div class="card pcard"><h3>Estudar um assunto</h3><div class="cmd"><pre>Seja meu professor de ASSUNTO. Explique em 5 passos curtos, com um exemplo prático em cada um, e depois me faça 3 perguntas para eu testar o que aprendi.</pre><button type="button">Copiar</button></div></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>Perguntas frequentes</h2>
+  <p class="sub"></p>
+  <details><summary>Preciso saber programar antes?</summary><p>Não. Você aprende fazendo, e a IA explica cada parte. Só peça sempre que ela explique o que escreveu.</p></details>
+  <details><summary>É seguro publicar código no GitHub?</summary><p>Sim, desde que você nunca envie senhas, chaves de API ou dados pessoais. Se guardar chaves em um arquivo <code>.env</code>, peça à IA para colocá-lo no <code>.gitignore</code>.</p></details>
+  <details><summary>Deu erro. O que eu faço?</summary><p>Copie a mensagem inteira, cole na IA e diga o que você estava fazendo. Quase sempre ela indica a correção.</p></details>
+  <details><summary>Preciso pagar pela Vercel ou pelo GitHub?</summary><p>Os planos gratuitos já bastam para projetos de estudo. Confira os limites atuais nos sites oficiais.</p></details>
+</div></section>
+
+<footer><div class="wrap">
+<p>© 2026 FicçãoIA. Conteúdo educativo e gratuito.</p>
+<p><a href="/privacidade.html">Política de Privacidade</a> · <a href="/termos.html">Termos de Uso</a></p>
+<p style="font-size:13px">FicçãoIA é um projeto independente e não tem ligação com Anthropic, OpenAI, Google, Microsoft, GitHub, Vercel ou qualquer outra empresa citada. Os nomes e marcas pertencem aos seus donos e aparecem apenas para fins educativos.</p>
+</div></footer>
+
+<script>
+(function(){
+  document.documentElement.classList.add("js");
+  try{
+    var items=document.querySelectorAll(".card,.pcm div,.steps>li,details,section>.wrap>h2,section>.wrap>p.sub");
+    items.forEach(function(el){
+      el.classList.add("rv");
+      var sib=Array.prototype.indexOf.call(el.parentNode.children,el);
+      el.style.setProperty("--d",(Math.min(sib,5)*0.08)+"s");
+    });
+    if("IntersectionObserver" in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}});
+      },{threshold:.12});
+      items.forEach(function(el){io.observe(el)});
+    }else{items.forEach(function(el){el.classList.add("in")})}
+  }catch(e){document.querySelectorAll(".rv").forEach(function(el){el.classList.add("in")})}
+  var ids=["p","c","t","f","r"], out=document.getElementById("out");
+  function build(){
+    var v=ids.map(function(i){return document.getElementById(i).value.trim()}).filter(Boolean);
+    out.textContent=v.join("\n");
+  }
+  ids.forEach(function(i){document.getElementById(i).addEventListener("input",build)});
+  build();
+  function copy(text,btn){
+    var label=btn.textContent;
+    function ok(){btn.textContent="Copiado";setTimeout(function(){btn.textContent=label},1400)}
+    try{navigator.clipboard.writeText(text).then(ok,function(){btn.textContent="Selecione e copie"})}
+    catch(e){btn.textContent="Selecione e copie"}
+  }
+  document.getElementById("copyp").addEventListener("click",function(){copy(out.textContent,this)});
+  document.querySelectorAll("[data-copy]").forEach(function(b){
+    b.addEventListener("click",function(){copy(b.getAttribute("data-copy"),b)});
+  });
+  var SK='ficcaoia-xp',S={xp:0,q:{},m:{},st:{}};
+  try{S=Object.assign(S,JSON.parse(localStorage.getItem(SK)||'{}'))}catch(e){}
+  var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var LV=[['Curioso',0],['Aprendiz',60],['Criador',150],['Dev com IA',280],['Mestre da IA',450]];
+  function lvl(){var l=0;LV.forEach(function(x,i){if(S.xp>=x[1])l=i});return l}
+  var tc=document.createElement('div');tc.className='toasts';document.body.appendChild(tc);
+  var chip=document.createElement('div');chip.className='xp';chip.innerHTML='<b id=xl></b><span class=pb><i id=xb></i></span><small id=xt></small>';
+  document.querySelector('nav').insertBefore(chip,document.getElementById('theme'));
+  function xpUi(){var l=lvl(),a=LV[l][1],b=LV[l+1]?LV[l+1][1]:a+1;document.getElementById('xl').textContent='Nível '+(l+1)+' · '+LV[l][0];document.getElementById('xb').style.width=(LV[l+1]?(S.xp-a)/(b-a)*100:100)+'%';document.getElementById('xt').textContent=S.xp+' XP'}
+  function toast(t){var d=document.createElement('div');d.className='toast';d.textContent=t;tc.appendChild(d);setTimeout(function(){d.remove()},2600)}
+  function burst(){if(calm)return;for(var i=0;i<28;i++){var s=document.createElement('i'),a=Math.random()*6.28,d=90+Math.random()*190;s.className='cf';s.style.setProperty('--x',Math.cos(a)*d+'px');s.style.setProperty('--y',Math.sin(a)*d+'px');s.style.background=['#10b981','#6ee7b7','#ffffff'][i%3];s.addEventListener('animationend',function(){this.remove()});document.body.appendChild(s)}}
+  function gain(n,msg){var b4=lvl();S.xp+=n;try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}xpUi();toast('+'+n+' XP · '+msg);if(lvl()>b4){toast('Novo nível: '+LV[lvl()][0]+'!');burst()}}
+  xpUi();
+  function el(tag,cls,html,fn){var e=document.createElement(tag);if(cls)e.className=cls;if(html)e.innerHTML=html;if(fn)e.addEventListener('click',fn);return e}
+  function mk(id,label,html){var s=document.createElement('section');s.id=id;s.hidden=true;s.innerHTML='<div class=wrap>'+html+'</div>';document.querySelector('footer').before(s);var b=el('button','tab',label);b.setAttribute('role','tab');b.setAttribute('data-tab',id);var tb=document.getElementById('tabbar');tb.insertBefore(b,tb.querySelector('[data-tab=faq]'))}
+  var M=[['Primeiro prompt','Escreva um prompt com Papel, Contexto, Tarefa, Formato e Restrições e envie para uma IA.',20],['Página no navegador','Peça uma página HTML à IA, salve como index.html e abra no navegador.',30],['Caça ao erro','Cole uma mensagem de erro inteira na IA e aplique a correção.',30],['Instale o VS Code','Instale o editor e abra uma pasta de projeto.',30],['Conta no GitHub','Crie sua conta gratuita em github.com.',20],['Seu primeiro commit','Rode git init, git add . e git commit na pasta do projeto.',40],['Código na nuvem','Envie seu projeto para um repositório no GitHub com git push.',40],['Instale um plugin','Instale um plugin ou skill no Claude Code e use uma vez.',40],['No ar!','Publique seu site na Vercel e abra o link .vercel.app.',60],['Mostre ao mundo','Envie o link do seu site para um amigo ou familiar.',20]];
+  mk('missoes','Missões','<h2>Missões</h2><p class=sub>Cada missão concluída vale XP. Junte pontos, suba de nível e chegue a Mestre da IA.</p><div class=grid id=ml></div>');
+  function mr(){var ml=document.getElementById('ml');ml.innerHTML='';M.forEach(function(m,i){var c=el('div','card mis'+(S.m[i]?' fin':''),'<h3>'+m[0]+'</h3><p>'+m[1]+'</p>');c.appendChild(el('button','copy',S.m[i]?'Concluída ✓':'Concluir (+'+m[2]+' XP)',function(){if(!S.m[i]){S.m[i]=1;gain(m[2],'missão cumprida');mr()}}));ml.appendChild(c)})}
+  mr();
+  var Q=[['O que significa a letra C na fórmula P-C-T-F-R?',['Código','Contexto','Comando'],1,'C é de Contexto: a situação e o público do seu pedido.'],['Qual comando salva uma versão do projeto no Git?',['git commit','git push','git init'],0,'commit salva a versão. push envia ao GitHub e init liga o Git na pasta.'],['Qual comando envia suas versões para o GitHub?',['git add','git push','git clone'],1,'push envia os commits para o repositório na nuvem.'],['O que é um repositório?',['Um tipo de IA','A pasta do projeto com todo o histórico','Um site de música'],1,'É a pasta do projeto guardada junto com o histórico de versões.'],['Para que serve a Vercel?',['Editar código','Colocar o site no ar','Criar imagens'],1,'A Vercel publica seu site e entrega um link .vercel.app.'],['O que você nunca deve colar num chat de IA?',['Uma mensagem de erro','Uma chave de API','Um trecho de código'],1,'Chaves e senhas dão acesso à sua conta. Guarde no arquivo .env.'],['O que é uma skill?',['Um jogo','Uma pasta de instruções que ensina um jeito de trabalhar','Um tipo de computador'],1,'A IA usa a skill quando a tarefa combina com ela.'],['Para que serve um conector (MCP)?',['Apagar arquivos','Deixar o PC mais rápido','Ligar o Claude a serviços como o GitHub'],2,'Ele deixa o Claude ler e agir em outras ferramentas.'],['Deu erro. Qual a melhor atitude?',['Copiar a mensagem inteira e pedir ajuda à IA','Desistir','Recomeçar do zero'],0,'A mensagem completa tem as pistas para a correção.'],['Qual pedido funciona melhor?',['Faça um site bonito','Site','Crie a página inicial de uma padaria em HTML, tom acolhedor, bom no celular'],2,'Pedidos específicos geram resultados melhores.'],['Para que serve o arquivo .gitignore?',['Instalar plugins','Dizer ao Git quais arquivos não enviar','Apagar o projeto'],1,'É onde você lista arquivos como o .env para ficarem só no seu computador.'],['Onde o Claude Code funciona?',['No terminal, dentro da pasta do projeto','Só no celular','Só em jogos'],0,'Você entra na pasta e digita claude.']];
+  mk('quiz','Quiz','<h2>Quiz</h2><p class=sub>Acertou, ganhou 10 XP. Cada pergunta rende XP uma vez só.</p><div class=card id=qb></div>');
+  var qi=0,hits=0;
+  function qr(){var box=document.getElementById('qb');box.innerHTML='';if(qi>=Q.length){box.innerHTML='<h3>Você acertou '+hits+' de '+Q.length+'</h3><p class=tip>'+(hits>=Q.length-2?'Mandou muito bem!':'Releia as abas e tente de novo.')+'</p>';box.appendChild(el('button','copy','Refazer',function(){qi=0;hits=0;qr()}));if(hits===Q.length)burst();return}
+    var q=Q[qi];box.appendChild(el('p','tip','Pergunta '+(qi+1)+' de '+Q.length));box.appendChild(el('h3','',q[0]));var tip=el('p','tip');var opts=[];
+    q[1].forEach(function(o,k){var b=el('button','opt',o,function(){opts.forEach(function(x,j){x.disabled=true;if(j===q[2])x.classList.add('ok')});if(k===q[2]){hits++;if(!S.q[qi]){S.q[qi]=1;gain(10,'resposta certa')}tip.textContent='Certo! '+q[3]}else{b.classList.add('no');tip.textContent='Quase. '+q[3]}box.appendChild(el('button','copy',qi===Q.length-1?'Ver resultado':'Próxima',function(){qi++;qr()}))});opts.push(b);box.appendChild(b)});box.appendChild(tip)}
+  qr();
+  var G=[['Prompt','O pedido que você escreve para a IA.'],['Token','Pedaço de texto que a IA lê e escreve. Conversas longas gastam mais.'],['Contexto','Informação que a IA tem à mão para responder.'],['Alucinação','Quando a IA inventa algo com cara de verdade. Sempre confira.'],['Skill','Pasta de instruções que ensina uma tarefa à IA.'],['Plugin','Pacote com skills, comandos e conexões.'],['Conector (MCP)','Liga a IA a serviços como GitHub e Drive.'],['Agente','IA que executa várias etapas sozinha para chegar a um objetivo.'],['Terminal','Janela onde você digita comandos em vez de clicar.'],['Comando','Uma instrução digitada no terminal.'],['VS Code','Editor de código gratuito da Microsoft.'],['Extensão','Complemento que adiciona recursos ao VS Code.'],['Git','Programa que guarda o histórico de versões do projeto.'],['Commit','Um ponto de salvamento com mensagem.'],['Branch','Linha paralela para testar mudanças sem risco.'],['Merge','Juntar uma branch ao projeto principal.'],['Repositório','A pasta do projeto, com seu histórico.'],['Clone','Baixar uma cópia de um repositório.'],['Push','Enviar seus commits para o GitHub.'],['Pull','Baixar as novidades do GitHub.'],['Pull request','Pedido para juntar suas mudanças ao projeto.'],['Issue','Tarefa ou problema anotado no GitHub.'],['Fork','Sua própria cópia de um projeto de outra pessoa.'],['Deploy','Colocar o site no ar.'],['HTML','Linguagem que cria a estrutura da página.'],['CSS','Linguagem que cuida das cores e do visual.'],['JavaScript','Linguagem que dá vida e interação à página.'],['API','Porta por onde um programa conversa com outro.'],['Chave de API','Senha que dá acesso a um serviço. Nunca divulgue.'],['.env','Arquivo onde ficam chaves e segredos do projeto.'],['.gitignore','Lista do que o Git não deve enviar.'],['README','Arquivo que explica o que é o projeto.'],['Bug','Erro ou comportamento inesperado no programa.'],['Front-end','A parte que a pessoa vê e usa no site.'],['Back-end','A parte que roda por trás, como dados e contas.']];
+  mk('gloss','Glossário','<h2>Glossário</h2><p class=sub>Os termos que mais aparecem, em palavras simples.</p><input id=gq placeholder="Buscar termo..." aria-label="Buscar termo"><div class=gl id=gl></div>');
+  function gr(){var f=document.getElementById('gq').value.toLowerCase(),g=document.getElementById('gl');g.innerHTML='';G.filter(function(x){return (x[0]+x[1]).toLowerCase().indexOf(f)>=0}).forEach(function(x){g.appendChild(el('div','','<b>'+x[0]+'</b>'+x[1]))})}
+  document.getElementById('gq').addEventListener('input',gr);gr();
+  var X=[['Comandos básicos do terminal','<code>pwd</code> mostra onde você está.<br><code>ls</code> (no Windows, <code>dir</code>) lista os arquivos.<br><code>cd pasta</code> entra numa pasta e <code>cd ..</code> volta.<br><code>mkdir nome</code> cria uma pasta nova.'],['HTML, CSS e JavaScript em 1 minuto','HTML é o esqueleto da página: títulos, textos, botões. CSS é a roupa: cores, tamanhos, espaços. JavaScript é o movimento: o que acontece quando alguém clica. Peça à IA para explicar cada arquivo do seu projeto.'],['Segurança: chaves e senhas','Guarde chaves de API num arquivo <code>.env</code> e liste esse arquivo no <code>.gitignore</code>. Nunca cole chaves no chat nem em código enviado ao GitHub. Se vazar, gere uma chave nova.'],['Como depurar com a IA','1. Copie a mensagem de erro inteira.<br>2. Diga o que você estava fazendo.<br>3. Cole o trecho de código relacionado.<br>4. Aplique uma correção por vez e teste.'],['Qual ferramenta usar para quê','Chat de IA (Claude, ChatGPT, Gemini): tirar dúvidas e gerar trechos de código. Claude Code: criar e editar projetos inteiros pelo terminal. Lovable e similares: gerar sites pelo chat. Canva: peças visuais. GitHub e Vercel: guardar e publicar.'],['Ideias de projetos para praticar','Página de uma padaria ou barbearia. Jogo do desvio de obstáculos. Quiz sobre seu assunto favorito. Lista de tarefas. Cardápio digital. Portfólio com seus projetos. Calculadora de gorjeta.']];
+  mk('extra','Aprenda mais','<h2>Aprenda mais</h2><p class=sub>Assuntos extras para ir além do básico.</p><div id=xd></div>');
+  X.forEach(function(x){document.getElementById('xd').appendChild(el('details','','<summary>'+x[0]+'</summary><p>'+x[1]+'</p>'))});
+  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.done-btn');if(!b)return;var li=b.parentNode,i=Array.prototype.indexOf.call(li.parentNode.children,li);if(li.classList.contains('done')&&!S.st[i]){S.st[i]=1;gain(20,'etapa concluída')}});
+  var panels=["ia","codar","skills","apps","sites","prompts","missoes","quiz","gloss","extra","roteiro","faq"];
+  var tabbar=document.getElementById("tabbar");
+  var bld=document.querySelector(".builder"), iaw=document.querySelector("#ia .wrap");
+  iaw.insertBefore(bld,iaw.querySelector(".pcm"));
+  function show(id,scroll){
+    if(panels.indexOf(id)<0)id="ia";
+    panels.forEach(function(p){document.getElementById(p).hidden=(p!==id)});
+    document.querySelectorAll(".tab").forEach(function(t){t.setAttribute("aria-selected",t.getAttribute("data-tab")===id?"true":"false")});
+    try{history.replaceState(null,"","#"+id)}catch(e){}
+    if(scroll)document.querySelector(".tabsw").scrollIntoView({block:"start"});
+  }
+  document.querySelectorAll(".tab").forEach(function(t){t.addEventListener("click",function(){show(t.getAttribute("data-tab"),true)})});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    var id=a.getAttribute("href").slice(1);
+    if(panels.indexOf(id)>=0)a.addEventListener("click",function(e){e.preventDefault();show(id,true)});
+  });
+  window.addEventListener("hashchange",function(){show(location.hash.slice(1),false)});
+  show(location.hash.slice(1),false);
+  document.querySelectorAll(".cmd button:not([data-copy])").forEach(function(b){
+    b.addEventListener("click",function(){copy(b.previousElementSibling.textContent,b)});
+  });
+  var T=["$ claude","\u273B O que vamos criar hoje?","> crie um site para a minha padaria","\u2713 criado index.html","\u2713 criado estilo.css","$ git push","\u2713 no ar: padaria.vercel.app"], tout=document.getElementById("termout");
+  function run(){
+    var i=0,j=0,buf="";
+    (function tick(){
+      if(i>=T.length){setTimeout(function(){tout.textContent="";run()},3500);return}
+      if(j<T[i].length){tout.textContent=buf+T[i].slice(0,++j);setTimeout(tick,T[i].charAt(0)==="\u2713"?8:32)}
+      else{buf+=T[i]+"\n";i++;j=0;setTimeout(tick,420)}
+    })();
+  }
+  if(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches){tout.textContent=T.join("\n")}else{run()}
+  var steps=document.querySelectorAll(".steps>li"), key="ficcaoia-progress", saved={};
+  try{saved=JSON.parse(localStorage.getItem(key)||"{}")||{}}catch(e){saved={}}
+  var ol=document.querySelector(".steps"), pw=document.createElement("div");
+  pw.className="prog";
+  pw.innerHTML='<div class="pt" id="ptxt"></div><div class="pb"><i id="pbar"></i></div>';
+  ol.parentNode.insertBefore(pw,ol);
+  function upd(){
+    var n=document.querySelectorAll(".steps>li.done").length;
+    document.getElementById("ptxt").textContent=n+" de "+steps.length+" etapas concluídas"+(n===steps.length?". Seu site está no ar!":"");
+    document.getElementById("pbar").style.width=(n/steps.length*100)+"%";
+    try{localStorage.setItem(key,JSON.stringify(saved))}catch(e){}
+  }
+  steps.forEach(function(li,i){
+    var b=document.createElement("button");b.type="button";b.className="done-btn";li.appendChild(b);
+    function set(){li.classList.toggle("done",!!saved[i]);b.textContent=saved[i]?"Desmarcar":"Marcar como feito"}
+    b.addEventListener("click",function(){saved[i]=!saved[i];set();upd()});
+    set();
+  });
+  upd();
+  var root=document.documentElement;
+  document.getElementById("theme").addEventListener("click",function(){
+    var dark=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches;
+    var cur=root.getAttribute("data-theme")||(dark?"dark":"dark");
+    root.setAttribute("data-theme",cur==="dark"?"light":"dark");
+  });
+})();
+</script>
+</body>
+</html>
