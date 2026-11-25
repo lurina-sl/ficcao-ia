@@ -18,7 +18,7 @@
 <meta property="og:locale" content="pt_BR">
 <link rel="canonical" href="https://ficcaoia.vercel.app/">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta name="google-site-verification" content="8q4-YCmwob-61koyZx4Dl89-qpYaqopi35UtJlToDhg" />
+<!-- Google Search Console: cole aqui a meta tag de verificação que o Google te der -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"FicçãoIA","url":"https://ficcaoia.vercel.app/","inLanguage":"pt-BR","description":"Aprenda IA, prompts, programar com IA, Git, GitHub e Vercel com missões, quiz e XP."}</script>
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="FicçãoIA — aprenda a criar com IA">
@@ -183,6 +183,50 @@ details[open] p{animation:up .35s ease backwards}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .rv{opacity:1}
 }
+
+body{background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:30px 30px}
+section>.wrap>h2::before{content:"";display:block;width:46px;height:5px;border-radius:3px;background:var(--em);margin-bottom:14px}
+.grp{display:flex;gap:26px;overflow-x:auto;padding-top:6px;scrollbar-width:none}
+.grp::-webkit-scrollbar{display:none}
+.gb{background:none;border:0;border-bottom:3px solid transparent;color:var(--muted);font:700 16px "Bricolage Grotesque","IBM Plex Sans",sans-serif;padding:10px 2px;white-space:nowrap;transition:color .2s,border-color .2s}
+.gb:hover{color:var(--text)}
+.gb[aria-selected="true"]{color:var(--text);border-color:var(--em)}
+.tabs{padding:8px 0 10px}
+.tab{font-size:15px;padding:7px 15px}
+.path{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:6px 0 36px}
+.pc{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:20px;text-decoration:none;transition:transform .25s,border-color .25s}
+a.pc:hover{transform:translateY(-4px);border-color:var(--em)}
+.pc b{width:34px;height:34px;border-radius:50%;background:var(--em);color:var(--on-em);display:grid;place-items:center;font:700 17px "Bricolage Grotesque",sans-serif;margin-bottom:12px}
+.pc h3{font-size:20px;margin-bottom:6px}
+.pc p{margin:0;color:var(--muted);font-size:15px}
+.dash{border-color:var(--em)}
+#dn{color:var(--muted);font-size:14.5px;line-height:1.6;margin:8px 0 14px}
+.pn{display:flex;justify-content:space-between;gap:12px;margin-top:44px;padding-top:22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.pn button{flex:1 1 220px;background:var(--bg2);border:1px solid var(--line);color:var(--text);border-radius:12px;padding:14px 18px;text-align:left;font-weight:600;transition:border-color .2s,transform .2s}
+.pn button:hover{border-color:var(--em);transform:translateY(-2px)}
+.pn small{display:block;color:var(--muted);font-weight:400;font-size:13px}
+@media (max-width:900px){.path{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.path{grid-template-columns:1fr}}
+
+.lv{font-size:12px;background:var(--em);color:var(--on-em);padding:2px 9px;border-radius:99px;margin-left:8px;font-weight:600;white-space:nowrap}
+.lb{padding-top:8px;font-size:16px}
+.lb p,.lb li{color:var(--muted);margin:8px 0}
+.lb b{color:var(--text)}
+.lb ul,.lb ol{padding-left:22px;margin:8px 0}
+.lb code{background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-size:14px;color:var(--text)}
+.lb .cmd{margin:12px 0}
+.lb .copy{margin-top:12px}
+
+#tabbar{display:none}
+.path a.pc{display:none}
+.path{grid-template-columns:1fr}
+.dash{grid-column:1/-1}
+.hub{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hub .pc p{margin:0}
+.back{background:none;border:0;color:var(--em);font-weight:600;padding:4px 0;margin-bottom:10px}
+.back:hover{color:var(--text)}
+.gb{font-size:17px;padding:12px 2px}
+@media (max-width:700px){.hub{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -199,7 +243,7 @@ details[open] p{animation:up .35s ease backwards}
   <div>
     <h1>Aprenda a criar com IA, do primeiro prompt ao <span>site no ar</span>.</h1>
     <p class="lead">Aulas diretas para quem está começando: como conversar com a IA, programar com ela, instalar skills e plugins, usar VS Code, Git, GitHub e publicar na Vercel.</p>
-    <a class="btn" href="#ia">Começar agora</a><a class="btn ghost" href="#roteiro">Ver o roteiro completo</a>
+    <a class="btn" href="#inicio">Começar agora</a><a class="btn ghost" href="#roteiro">Ver o roteiro completo</a>
   </div>
   <div class="term" aria-hidden="true"><div class="tb"><i></i><i></i><i></i>meu-primeiro-site</div><pre id="termout"></pre></div>
   <div class="builder" aria-label="Montador de prompt">
@@ -216,6 +260,12 @@ details[open] p{animation:up .35s ease backwards}
 </div>
 </div>
 
+<div class="wrap"><div class="path">
+<a href="#ia" class="pc"><b>1</b><h3>Aprenda</h3><p>IA, prompts, VS Code, Git e Vercel em aulas curtas.</p></a>
+<a href="#missoes" class="pc"><b>2</b><h3>Pratique</h3><p>Missões, quiz e prompts prontos para ganhar XP.</p></a>
+<a href="#roteiro" class="pc"><b>3</b><h3>Publique</h3><p>Coloque seu site no ar com GitHub e Vercel.</p></a>
+<div class="pc dash"><h3>Seu progresso</h3><div id="dn"></div><button class="copy" id="dcont" type="button">Continuar</button></div>
+</div></div>
 <div class="tabsw"><div class="wrap"><div class="tabs" role="tablist" id="tabbar">
   <button class="tab" role="tab" data-tab="ia">IA e prompts</button>
   <button class="tab" role="tab" data-tab="codar">Programar com IA</button>
@@ -388,7 +438,7 @@ details[open] p{animation:up .35s ease backwards}
   var tc=document.createElement('div');tc.className='toasts';document.body.appendChild(tc);
   var chip=document.createElement('div');chip.className='xp';chip.innerHTML='<b id=xl></b><span class=pb><i id=xb></i></span><small id=xt></small>';
   document.querySelector('nav').insertBefore(chip,document.getElementById('theme'));
-  function xpUi(){var l=lvl(),a=LV[l][1],b=LV[l+1]?LV[l+1][1]:a+1;document.getElementById('xl').textContent='Nível '+(l+1)+' · '+LV[l][0];document.getElementById('xb').style.width=(LV[l+1]?(S.xp-a)/(b-a)*100:100)+'%';document.getElementById('xt').textContent=S.xp+' XP'}
+  function xpUi(){var l=lvl(),a=LV[l][1],b=LV[l+1]?LV[l+1][1]:a+1;document.getElementById('xl').textContent='Nível '+(l+1)+' · '+LV[l][0];document.getElementById('xb').style.width=(LV[l+1]?(S.xp-a)/(b-a)*100:100)+'%';document.getElementById('xt').textContent=S.xp+' XP';dash()}
   function toast(t){var d=document.createElement('div');d.className='toast';d.textContent=t;tc.appendChild(d);setTimeout(function(){d.remove()},2600)}
   function burst(){if(calm)return;for(var i=0;i<28;i++){var s=document.createElement('i'),a=Math.random()*6.28,d=90+Math.random()*190;s.className='cf';s.style.setProperty('--x',Math.cos(a)*d+'px');s.style.setProperty('--y',Math.sin(a)*d+'px');s.style.background=['#10b981','#6ee7b7','#ffffff'][i%3];s.addEventListener('animationend',function(){this.remove()});document.body.appendChild(s)}}
   function gain(n,msg){var b4=lvl();S.xp+=n;try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}xpUi();toast('+'+n+' XP · '+msg);if(lvl()>b4){toast('Novo nível: '+LV[lvl()][0]+'!');burst()}}
@@ -414,15 +464,109 @@ details[open] p{animation:up .35s ease backwards}
   mk('extra','Aprenda mais','<h2>Aprenda mais</h2><p class=sub>Assuntos extras para ir além do básico.</p><div id=xd></div>');
   X.forEach(function(x){document.getElementById('xd').appendChild(el('details','','<summary>'+x[0]+'</summary><p>'+x[1]+'</p>'))});
   document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.done-btn');if(!b)return;var li=b.parentNode,i=Array.prototype.indexOf.call(li.parentNode.children,li);if(li.classList.contains('done')&&!S.st[i]){S.st[i]=1;gain(20,'etapa concluída')}});
-  var panels=["ia","codar","skills","apps","sites","prompts","missoes","quiz","gloss","extra","roteiro","faq"];
+  var SUB={aulaia:'Como a IA funciona, como escolher a ferramenta, como pedir bem e como usar com responsabilidade.',auladev:'Instalação, Git, GitHub, Vercel e como resolver os erros mais comuns.',aulapro:'Projetos para praticar, Claude Code, CLAUDE.md, skills próprias e portfólio.'};
+  var LT={aulaia:'IA na prática',auladev:'Ferramentas de dev',aulapro:'Projetos e avançado'};
+  var L={
+  aulaia:[
+  ['Como a IA funciona, sem complicação','Iniciante',`<p>Uma IA de texto, como Claude, ChatGPT ou Gemini, é um modelo de linguagem: ela aprendeu padrões em uma enorme quantidade de textos e, a cada resposta, escolhe as próximas palavras mais prováveis para o que você pediu.</p><ul><li>Ela escreve bem, mas não "sabe" como uma pessoa. Por isso pode errar com muita confiança, o que chamamos de <b>alucinação</b>.</li><li>Ela só enxerga o que está na conversa, o <b>contexto</b>. O que você não contou, ela não sabe.</li><li>O contexto tem limite. Em conversas muito longas ela pode perder o começo, então abra uma conversa nova para um assunto novo.</li><li>Confira números, datas, nomes e links antes de usar.</li></ul>`],
+  ['Chat, editor ou terminal: qual usar','Iniciante',`<p>Há três jeitos de usar IA, e escolher o certo poupa tempo.</p><ul><li><b>Chat</b> (Claude, ChatGPT, Gemini): você pergunta e recebe respostas ou trechos de código. Ideal para aprender e tirar dúvidas.</li><li><b>Assistente no editor:</b> trabalha dentro do VS Code, vendo seus arquivos.</li><li><b>Agente no terminal</b> (como o Claude Code): lê o projeto inteiro, edita arquivos e roda comandos, pedindo sua permissão.</li></ul><p>Regra simples: comece no chat, passe para o editor quando tiver um projeto, e use o agente quando precisar mexer em vários arquivos de uma vez.</p>`],
+  ['Prompts avançados: exemplos, etapas e perguntas','Intermediário',`<p>Cinco técnicas que melhoram quase qualquer resposta:</p><ul><li><b>Dê exemplos:</b> mostre uma ou duas amostras do formato que você quer.</li><li><b>Peça em etapas:</b> "primeiro faça um plano, depois implemente".</li><li><b>Defina o que é sucesso:</b> "funciona no celular, sem bibliotecas externas".</li><li><b>Deixe a IA perguntar:</b> "antes de começar, me faça até 3 perguntas".</li><li><b>Peça revisão:</b> "agora aponte 3 problemas na sua própria resposta".</li></ul><pre>Quero uma lista de tarefas em HTML, CSS e JavaScript.\nAntes de escrever o código, me faça até 3 perguntas.\nDepois entregue um único arquivo index.html que funcione no celular.</pre>`],
+  ['Como pedir código que funciona','Intermediário',`<p>Código bom nasce de um pedido bom. Inclua sempre:</p><ul><li>A <b>linguagem</b> e onde vai rodar (navegador, terminal, Node).</li><li>O que <b>entra</b> e o que deve <b>sair</b>, com um exemplo.</li><li>Limites, como "sem bibliotecas externas" ou "comentários simples".</li><li>Como <b>testar</b>: peça 3 casos de teste.</li></ul><pre>Escreva uma função em JavaScript que receba o valor de uma conta e a porcentagem de gorjeta e devolva o total.\nExemplo: 100 e 10 devolve 110.\nExplique o código linha por linha e dê 3 casos de teste.</pre>`],
+  ['Ética, direitos autorais e privacidade','Iniciante',`<ul><li><b>Privacidade:</b> não cole dados pessoais, senhas, chaves ou documentos de outras pessoas no chat.</li><li><b>Direitos autorais:</b> não peça para copiar textos, imagens ou códigos de terceiros e publicar como seus. Use como inspiração e escreva com suas palavras.</li><li><b>Honestidade:</b> em trabalhos da escola ou do emprego, siga as regras e avise quando usou IA.</li><li><b>Revisão humana:</b> você responde pelo que publica. Leia, teste e entenda antes de usar.</li></ul>`]
+  ],
+  auladev:[
+  ['Instalando o básico: VS Code, Git e Node','Iniciante',`<p>Instale nesta ordem, só pelos sites oficiais:</p><ol><li><b>VS Code:</b> code.visualstudio.com.</li><li><b>Git:</b> git-scm.com. No Windows, aceite as opções padrão.</li><li><b>Node.js (versão LTS):</b> nodejs.org. Várias ferramentas dependem dele.</li></ol><p>Depois abra o terminal e confira:</p><pre>git --version\nnode --version</pre><p>Se aparecerem números de versão, está tudo certo. Se aparecer "command not found", feche e abra o terminal de novo.</p>`],
+  ['Git na prática: os comandos do dia a dia','Iniciante',`<pre>git status\ngit add .\ngit commit -m "adiciona quiz de Git"\ngit log --oneline\ngit switch -c nova-ideia\ngit switch main\ngit merge nova-ideia\ngit restore arquivo.html</pre><ul><li><code>status</code> mostra o que mudou e <code>add .</code> prepara tudo.</li><li><code>commit</code> salva uma versão com mensagem e <code>log</code> mostra o histórico.</li><li><code>switch -c</code> cria uma branch e entra nela, e <code>merge</code> junta uma branch na atual.</li><li><code>restore</code> descarta mudanças não salvas de um arquivo.</li></ul><p>Faça commits pequenos e frequentes, com mensagens que dizem o que mudou. Se algo quebrar, você volta fácil.</p>`],
+  ['GitHub na prática: do clone ao pull request','Intermediário',`<ol><li><b>Clone:</b> baixe um projeto com <code>git clone endereço</code>.</li><li><b>Branch:</b> crie uma para sua mudança com <code>git switch -c minha-mudanca</code>.</li><li><b>Commit e push:</b> salve e envie com <code>git push -u origin minha-mudanca</code>.</li><li><b>Pull request:</b> no GitHub, abra um pull request, descreva o que mudou e peça revisão.</li><li><b>Merge:</b> depois de aprovado, junte ao projeto principal.</li></ol><p>Capriche no <b>README.md</b>: nome, o que faz, como rodar e uma imagem. Ele é a vitrine do projeto. Se o repositório for público, escolha uma licença, como a MIT.</p>`],
+  ['Publicando na Vercel e usando domínio próprio','Intermediário',`<ol><li>Entre em vercel.com com sua conta do GitHub.</li><li>Clique em <b>Add New → Project</b> e escolha o repositório.</li><li>Para sites simples em HTML, deixe tudo no padrão e clique em <b>Deploy</b>.</li><li>Cada <code>git push</code> na branch main gera uma nova versão no ar.</li></ol><p><b>Domínio próprio:</b> registre em um registrador (domínios .com.br são registrados no registro.br). Depois vá em Settings → Domains na Vercel, adicione o domínio e siga as instruções de DNS que ela mostrar.</p><p><b>Segredos:</b> chaves de API vão em Settings → Environment Variables, nunca no código.</p>`],
+  ['Erros comuns e como resolver','Iniciante',`<ul><li><code>command not found</code>: o programa não está instalado ou o terminal precisa ser reaberto.</li><li><code>fatal: not a git repository</code>: você não está na pasta do projeto, ou falta rodar <code>git init</code>.</li><li><code>rejected</code> ao enviar: o GitHub tem mudanças que você não tem. Rode <code>git pull</code> e tente de novo.</li><li><code>Permission denied</code>: falta login ou permissão no repositório.</li><li>Conflito de merge: o Git marca o arquivo com <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>. Abra, escolha o que fica, apague as marcas e faça um novo commit.</li><li>404 na Vercel: a página principal precisa se chamar <code>index.html</code> e estar na raiz.</li></ul><p>Em qualquer caso, copie a mensagem inteira e peça ajuda à IA.</p>`]
+  ],
+  aulapro:[
+  ['Seu primeiro projeto: lista de tarefas','Iniciante',`<p>Um clássico para treinar o ciclo completo.</p><ol><li>Crie a pasta <code>lista-de-tarefas</code> e abra no VS Code.</li><li>Envie o prompt abaixo para a IA e salve o resultado como <code>index.html</code>.</li><li>Abra no navegador e teste.</li><li>Peça melhorias, uma por vez: apagar tarefa, marcar como feita, guardar no navegador.</li><li>Faça um commit a cada melhoria.</li></ol><pre>Crie uma lista de tarefas em um único index.html com HTML, CSS e JavaScript.\nDeve permitir adicionar, marcar como feita e apagar tarefas.\nVisual limpo, verde esmeralda e branco, bom no celular.\nComente o código de forma simples.</pre>`],
+  ['Claude Code: trabalhando com um agente','Avançado',`<ol><li>Instale seguindo as instruções oficiais em docs.claude.com, porque o método pode mudar.</li><li>Abra o terminal <b>dentro da pasta do projeto</b> e digite <code>claude</code>.</li><li>Descreva o objetivo e peça um <b>plano antes</b> de qualquer mudança.</li><li>Ele pede permissão para editar arquivos e rodar comandos. Leia antes de aceitar.</li><li>Revise o que mudou com <code>git diff</code> e faça um commit.</li></ol><p>Peça mudanças pequenas: quanto mais clara a tarefa, melhor o resultado.</p>`],
+  ['CLAUDE.md: ensine seu projeto à IA','Avançado',`<p>Um arquivo chamado <code>CLAUDE.md</code> na raiz do projeto guarda instruções que o Claude Code lê ao trabalhar nele: como rodar, padrões de código e o que evitar. Assim você não repete o mesmo pedido toda vez.</p><pre># Projeto FicçãoIA\n- Site estático em HTML, CSS e JavaScript, sem build.\n- Cores: verde esmeralda e branco sobre fundo escuro.\n- Textos em português do Brasil.\n- Nunca colocar chaves ou senhas no código.</pre>`],
+  ['Criando sua própria skill','Avançado',`<p>Uma skill é uma pasta com um arquivo <code>SKILL.md</code>. No topo vão o nome e uma descrição de quando usar; abaixo, as instruções.</p><pre>---\nname: revisor-de-texto\ndescription: Use ao revisar textos em português do Brasil.\n---\nCorrija ortografia e gramática, mantenha o tom do autor e liste as mudanças feitas.</pre><p>A descrição ajuda o Claude a decidir quando usar a skill, então escreva-a pensando em quando ela serve. Confira na documentação oficial onde guardar a pasta, porque isso varia conforme o app.</p>`],
+  ['Portfólio e carreira com projetos de IA','Intermediário',`<ul><li>Fixe no perfil do GitHub de 3 a 6 projetos que você terminou.</li><li>Dê a cada projeto um README: o que é, link do site no ar, tecnologias e uma imagem.</li><li>Conte o <b>processo</b>: o que você pediu à IA, o que corrigiu e o que aprendeu.</li><li>Faça commits frequentes, que mostram constância.</li><li>Entenda o código que publica: em entrevistas, vão perguntar como ele funciona.</li></ul>`]
+  ]};
+  L.aulaweb=[
+  ['HTML: a estrutura da página','Iniciante',`<p>HTML é o esqueleto: você marca o que é título, texto, link, imagem e botão usando <b>tags</b>.</p><ul><li><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>: títulos, do mais importante ao menos.</li><li><code>&lt;p&gt;</code>: parágrafo. <code>&lt;a href="..."&gt;</code>: link.</li><li><code>&lt;img src="..." alt="..."&gt;</code>: imagem, sempre com texto alternativo.</li><li><code>&lt;ul&gt;</code> e <code>&lt;li&gt;</code>: listas. <code>&lt;button&gt;</code>: botão.</li></ul><pre>&lt;!DOCTYPE html&gt;\n&lt;html lang="pt-BR"&gt;\n&lt;head&gt;\n  &lt;meta charset="utf-8"&gt;\n  &lt;title&gt;Meu site&lt;/title&gt;\n&lt;/head&gt;\n&lt;body&gt;\n  &lt;h1&gt;Olá, mundo!&lt;/h1&gt;\n&lt;/body&gt;\n&lt;/html&gt;</pre>`],
+  ['CSS: cores, fontes e espaços','Iniciante',`<p>CSS diz como cada parte do HTML deve parecer. A regra tem um <b>seletor</b> (quem) e <b>propriedades</b> (como).</p><pre>h1 {\n  color: #10b981;\n  font-size: 40px;\n}\n.card {\n  background: #08201a;\n  padding: 20px;\n  border-radius: 14px;\n}</pre><ul><li><code>color</code> e <code>background</code>: cores do texto e do fundo.</li><li><code>padding</code>: espaço por dentro. <code>margin</code>: espaço por fora.</li><li><code>border-radius</code>: cantos arredondados.</li></ul><p>Dica: peça à IA "mude só as cores, mantendo o resto" para evoluir o visual sem quebrar nada.</p>`],
+  ['Layout moderno: Flexbox, Grid e celular','Intermediário',`<ul><li><b>Flexbox</b> alinha itens em uma linha ou coluna: <code>display: flex; gap: 16px;</code></li><li><b>Grid</b> monta colunas e linhas: <code>display: grid; grid-template-columns: repeat(3, 1fr);</code></li><li><b>Responsivo</b> é o site se adaptar a qualquer tela. A regra <b>media query</b> troca o estilo conforme a largura:</li></ul><pre>@media (max-width: 700px) {\n  .grade { grid-template-columns: 1fr; }\n}</pre><p>Teste sempre no celular. Sem a tag <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> o site não se ajusta direito.</p>`],
+  ['JavaScript: dando vida à página','Intermediário',`<p>JavaScript reage ao que a pessoa faz: cliques, digitação, rolagem. Três ideias bastam para começar: <b>variáveis</b> guardam valores, <b>funções</b> agrupam ações e <b>eventos</b> disparam as funções.</p><pre>&lt;button id="botao"&gt;Cliques: 0&lt;/button&gt;\n&lt;script&gt;\n  let total = 0;\n  const botao = document.getElementById("botao");\n  botao.addEventListener("click", function () {\n    total = total + 1;\n    botao.textContent = "Cliques: " + total;\n  });\n&lt;/script&gt;</pre><p>Peça à IA para explicar linha por linha e depois mude o que quiser, como contar de 2 em 2.</p>`],
+  ['Acessibilidade: um site para todo mundo','Intermediário',`<ul><li>Coloque <b>texto alternativo</b> (<code>alt</code>) em imagens importantes.</li><li>Use <b>contraste</b> forte entre texto e fundo.</li><li>Declare o idioma: <code>&lt;html lang="pt-BR"&gt;</code>.</li><li>Garanta que dá para usar tudo só com o <b>teclado</b> (tecla Tab).</li><li>Use botões e links de verdade, não só quadrados clicáveis.</li><li>Dê nome aos campos de formulário com <code>&lt;label&gt;</code>.</li></ul><p>Peça à IA: "revise este HTML e liste problemas de acessibilidade".</p>`],
+  ['Depurando no navegador com o F12','Iniciante',`<p>Aperte <b>F12</b> (ou Ctrl+Shift+I) para abrir as ferramentas do desenvolvedor.</p><ul><li><b>Console:</b> mostra erros do JavaScript. Copie a mensagem e cole na IA.</li><li><b>Elements:</b> mostra o HTML e o CSS e deixa testar mudanças ao vivo.</li><li><b>Network:</b> mostra o que a página baixou, útil quando algo não carrega.</li><li>O ícone de celular simula telas pequenas.</li></ul>`],
+  ['SEO básico: ser encontrado no Google','Intermediário',`<ul><li>Dê a cada página um <code>&lt;title&gt;</code> único e uma <code>meta description</code> clara.</li><li>Use um só <code>&lt;h1&gt;</code> por página, com os títulos em ordem.</li><li>Use imagens leves e com <code>alt</code>.</li><li>Tenha <code>robots.txt</code> e <code>sitemap.xml</code> e envie o sitemap no Google Search Console.</li><li>Escreva conteúdo útil e original: é o que mais pesa.</li></ul>`]
+  ];
+  L.aulaia2=[
+  ['Estudar com IA, de verdade','Iniciante',`<p>A IA pode ser um tutor, desde que você pense junto, em vez de só copiar respostas.</p><ul><li>Peça explicações em níveis: "explique como para uma criança" e depois "agora mais técnico".</li><li>Peça para ela <b>te testar</b> com perguntas, e não só dar o resumo.</li><li>Explique o assunto com suas palavras e peça para ela apontar erros.</li><li>Transforme o conteúdo em flashcards ou numa lista de revisão.</li></ul><pre>Seja meu tutor de fotossíntese. Explique em 5 passos curtos.\nDepois me faça 3 perguntas, uma por vez, e corrija minhas respostas.</pre>`],
+  ['IA para textos: e-mails, resumos e currículos','Iniciante',`<ul><li>Diga <b>para quem</b> é o texto e o <b>tom</b>: formal, simpático, direto.</li><li>Dê os fatos reais: a IA não deve inventar datas, cargos ou resultados.</li><li>Peça 2 ou 3 versões e escolha a que soa como você.</li><li>Reescreva no seu jeito antes de enviar.</li></ul><pre>Escreva um e-mail curto e educado para a professora pedindo uma nova data de entrega.\nMotivo: fiquei doente na semana passada.\nTom: respeitoso. Dê 2 versões.</pre>`],
+  ['Imagens com IA: como pedir e o que cuidar','Intermediário',`<p>Bons prompts de imagem descrevem <b>assunto, estilo, cores, ambiente e enquadramento</b>.</p><pre>Ilustração de uma padaria de bairro ao amanhecer, estilo desenho vetorial, cores quentes, vista frontal, sem texto.</pre><ul><li>Não peça imagens de pessoas reais sem autorização, nem que imitem artistas específicos.</li><li>Confira as regras da ferramenta sobre uso comercial.</li><li>Evite colocar texto longo na imagem: a IA costuma errar letras.</li></ul>`],
+  ['Agentes e conectores: poder e cuidado','Avançado',`<p>Um <b>agente</b> executa várias etapas sozinho. Um <b>conector</b> (MCP) dá a ele acesso a serviços como GitHub ou Drive.</p><ul><li>Dê só as <b>permissões necessárias</b>. Prefira acesso de leitura quando bastar.</li><li>Leia o que o agente vai fazer antes de aceitar ações que mudam ou apagam coisas.</li><li><b>Injeção de prompt:</b> um texto escondido numa página ou arquivo pode tentar mandar o agente fazer outra coisa. Desconfie de instruções que vêm de conteúdo, e não de você.</li><li>Teste primeiro em um projeto sem dados importantes.</li></ul>`],
+  ['Escolhendo o modelo e o jeito de usar','Intermediário',`<ul><li>Modelos maiores costumam raciocinar melhor, mas são mais lentos e caros. Os menores respondem rápido em tarefas simples.</li><li>Para dúvidas rápidas, use o rápido. Para planejar um projeto ou achar um bug difícil, use o mais forte.</li><li>Teste o mesmo pedido em duas ferramentas e compare.</li><li>Os nomes e planos mudam com frequência. Confira sempre o site oficial.</li></ul>`],
+  ['Verificando o que a IA diz','Iniciante',`<ol><li>Desconfie de números, datas, nomes, citações e links.</li><li>Peça as <b>fontes</b> e abra cada uma: às vezes o link não existe.</li><li>Procure o mesmo fato em um site oficial ou confiável.</li><li>Para código, <b>rode e teste</b> antes de usar.</li><li>Quando for importante (saúde, dinheiro, lei), consulte um profissional.</li></ol><pre>Responda só com o que você tem certeza. Se não souber, diga "não sei". Cite as fontes.</pre>`],
+  ['Automatizando tarefas chatas','Intermediário',`<p>Muita tarefa repetitiva vira um pedido de uma linha para a IA.</p><ul><li><b>Planilhas:</b> descreva o que quer e peça a fórmula.</li><li><b>Textos em lote:</b> peça para padronizar nomes, datas ou listas.</li><li><b>Scripts:</b> peça um programa que renomeie arquivos ou organize pastas.</li></ul><pre>Na planilha, a coluna A tem datas e a coluna B tem valores.\nQuero somar os valores de cada mês. Dê a fórmula passo a passo.</pre><p>Antes de rodar scripts que alteram arquivos, faça uma cópia de segurança.</p>`]
+  ];
+  LT.aulaweb='HTML, CSS e JS';LT.aulaia2='IA no dia a dia';
+  SUB.aulaweb='Os três pilares da web, layout responsivo, acessibilidade, depuração e SEO.';
+  SUB.aulaia2='Estudar, escrever, criar imagens, usar agentes com segurança e conferir o que a IA diz.';
+  M.push(['Seu primeiro CSS','Mude as cores do seu site com ajuda da IA e veja o resultado.',30],['Teste no celular','Abra seu site no celular e peça à IA para corrigir o que ficar estranho.',30],['README caprichado','Escreva um README com descrição, link do site no ar e uma imagem.',40],['Uma branch de teste','Crie uma branch, faça uma mudança e junte com merge.',40],['Use o F12','Abra as ferramentas do navegador e ache o Console.',20],['Seu CLAUDE.md','Escreva um CLAUDE.md com 4 regras do seu projeto.',40]);
+  mr();
+  Q.push(['Qual tecla abre as ferramentas do desenvolvedor na maioria dos navegadores?',['F5','Esc','F12'],2,'F12 (ou Ctrl+Shift+I) abre Console, Elements e Network.'],['Para que serve o atributo alt de uma imagem?',['Mudar a cor','Descrever a imagem para quem não a vê','Apagar a imagem'],1,'Leitores de tela leem o alt, e ele aparece se a imagem falhar.'],['Qual linguagem cuida do visual da página?',['Git','CSS','Node'],1,'CSS define cores, fontes, espaços e layout.'],['O que faz uma media query?',['Baixa músicas','Cria um repositório','Aplica estilos conforme o tamanho da tela'],2,'Ela adapta o layout ao celular, ao tablet e ao computador.'],['O que é injeção de prompt?',['Um comando do Git','Um texto escondido que tenta enganar a IA a obedecer outra ordem','Uma vacina'],1,'Por isso você não deve confiar em instruções vindas de conteúdo externo.'],['Ao dar acesso a um conector, o que fazer?',['Liberar só as permissões necessárias','Dar acesso total','Compartilhar a senha'],0,'Quanto menos acesso, menor o risco.'],['Antes de confiar num fato dado pela IA, você deve…',['Publicar na hora','Conferir em uma fonte confiável','Pedir de novo até ela concordar'],1,'A IA pode inventar com muita confiança.'],['Qual atributo da tag html indica o idioma da página?',['href','style','lang'],2,'Ex.: lang="pt-BR", que ajuda leitores de tela e buscadores.']);
+  G.push(['Responsivo','Site que se adapta a qualquer tamanho de tela.'],['Flexbox','Jeito de alinhar itens em linha ou coluna no CSS.'],['Grid','Jeito de montar colunas e linhas no CSS.'],['Media query','Regra de CSS que muda o estilo conforme a tela.'],['DOM','A estrutura da página que o JavaScript consegue mexer.'],['Console','Painel do navegador que mostra erros e mensagens.'],['Cache','Cópia guardada para o site carregar mais rápido.'],['Domínio','O endereço do site, como ficcaoia.com.br.'],['DNS','Sistema que liga o domínio ao servidor do site.'],['HTTPS','Conexão protegida entre você e o site.'],['Framework','Conjunto de ferramentas prontas para montar projetos.'],['Biblioteca','Código pronto de outra pessoa que você reutiliza.'],['Injeção de prompt','Texto escondido que tenta fazer a IA seguir outra ordem.'],['LLM','Modelo de linguagem grande, o tipo de IA por trás dos chats.'],['SEO','Práticas para o site ser encontrado em buscadores.'],['Acessibilidade','Fazer o site funcionar para todas as pessoas.'],['Open source','Código aberto, que qualquer pessoa pode ver e usar.'],['Licença','Regra que diz como o código pode ser usado.']);
+  gr();
+  S.l=S.l||{};
+  Object.keys(L).forEach(function(id){
+    mk(id,LT[id],'<h2>'+LT[id]+'</h2><p class=sub>'+SUB[id]+'</p><div id=l_'+id+'></div>');
+    var box=document.getElementById('l_'+id);
+    L[id].forEach(function(l,i){
+      var k=id+i,d=el('details','','<summary>'+l[0]+' <span class=lv>'+l[1]+'</span></summary><div class=lb>'+l[2]+'</div>');
+      if(i===0)d.open=true;
+      var b=el('button','copy',S.l[k]?'Aula concluída ✓':'Concluir aula (+15 XP)',function(){if(!S.l[k]){S.l[k]=1;gain(15,'aula concluída');b.textContent='Aula concluída ✓'}});
+      d.querySelector('.lb').appendChild(b);box.appendChild(d);
+    });
+  });
+  document.querySelectorAll('.lb pre').forEach(function(p){var w=el('div','cmd');p.parentNode.insertBefore(w,p);w.appendChild(p);var cb=el('button','','Copiar');cb.addEventListener('click',function(){copy(p.textContent,cb)});w.appendChild(cb)});
+  Q.push(['O que é um agente de IA?',['Um site de empregos','Um programa que executa várias etapas sozinho para chegar a um objetivo','Um tipo de vírus'],1,'Ele planeja e executa etapas, como editar arquivos e rodar comandos.'],['Para que serve uma branch?',['Testar mudanças sem mexer na versão principal','Apagar o projeto','Instalar a Vercel'],0,'Você experimenta com segurança e junta depois com merge.'],['O envio com git push foi rejeitado. O que fazer?',['Apagar o repositório','Rodar git pull e tentar de novo','Reinstalar o computador'],1,'O GitHub tinha mudanças que você ainda não tinha baixado.'],['Qual arquivo a Vercel procura como página inicial?',['home.html','index.html','site.html'],1,'Ele precisa se chamar index.html e ficar na raiz.'],['O que é alucinação de uma IA?',['Quando a IA desliga','Um tipo de imagem','Quando ela inventa algo que parece verdade'],2,'Por isso você deve conferir fatos, números e links.'],['O que guarda o arquivo CLAUDE.md?',['Suas senhas','Instruções do projeto para o Claude Code','Fotos do site'],1,'Ele evita que você repita as mesmas orientações toda vez.']);
+  qr();
+  var TB=document.getElementById('tabbar'),TBt={};
+  TB.querySelectorAll('.tab').forEach(function(t){TBt[t.getAttribute('data-tab')]=t});
+  var HUB={
+    hubA:{t:'Aulas',sub:'Siga na ordem, uma de cada vez. Comece pela número 1.',ids:['ia','aulaia','codar','apps','auladev','sites','aulaweb','skills','aulaia2','aulapro']},
+    hubP:{t:'Praticar',sub:'Aprender fazendo: publique seu site, ganhe XP e teste o que aprendeu.',ids:['roteiro','missoes','quiz','prompts']},
+    hubC:{t:'Consultar',sub:'Ficou com dúvida? Procure aqui.',ids:['gloss','extra','faq']}
+  };
+  var DESC={ia:'O que é IA e como fazer bons prompts.',aulaia:'Como a IA funciona, ética e prompts avançados.',codar:'Três jeitos de programar com a ajuda da IA.',apps:'VS Code, Git e GitHub para iniciantes.',auladev:'Instalar, usar Git, GitHub e Vercel.',sites:'Como o seu site vai parar na internet.',aulaweb:'HTML, CSS e JavaScript do zero.',skills:'Skills, plugins e conectores.',aulaia2:'Estudar, escrever e usar agentes com segurança.',aulapro:'Projetos, Claude Code e portfólio.',roteiro:'Do zero ao site no ar, em 6 etapas.',missoes:'Desafios que dão XP.',quiz:'Teste o que você aprendeu.',prompts:'Prompts prontos para copiar.',gloss:'Termos em palavras simples.',extra:'Terminal, segurança e ideias de projetos.',faq:'Perguntas frequentes.'};
+  var GN={inicio:0,hubA:1,hubP:2,hubC:3};
+  Object.keys(HUB).forEach(function(h){HUB[h].ids.forEach(function(id){GN[id]=GN[h]})});
+  mk('inicio','Início','<h2>Comece por aqui</h2><p class=sub>Primeira vez? Siga estes 3 passos, na ordem. Depois, explore Aulas, Praticar e Consultar no menu acima.</p><div class="hub" id="hub_inicio"></div>');
+  Object.keys(HUB).forEach(function(h){var H=HUB[h];mk(h,H.t,'<h2>'+H.t+'</h2><p class=sub>'+H.sub+'</p><div class="hub" id="hub_'+h+'"></div>')});
+  function card(box,id,n,title,desc){var a=el('a','pc','<b>'+n+'</b><h3>'+title+'</h3><p>'+desc+'</p>');a.href='#'+id;box.appendChild(a)}
+  [['ia','Entenda a IA e aprenda a pedir','Leia a aula de IA e prompts. Leva uns 10 minutos.'],['roteiro','Faça seu primeiro site e publique','Siga o roteiro de 6 etapas até o site ficar no ar.'],['missoes','Pratique e ganhe XP','Cumpra missões e responda ao quiz.']].forEach(function(x,i){card(document.getElementById('hub_inicio'),x[0],i+1,x[1],x[2])});
+  Object.keys(HUB).forEach(function(h){var H=HUB[h],box=document.getElementById('hub_'+h);
+    H.ids.forEach(function(id,i){card(box,id,i+1,TBt[id].textContent,DESC[id])});
+    H.ids.forEach(function(id,i){var w=document.querySelector('#'+id+' .wrap'),n=el('div','pn');
+      w.insertBefore(el('button','back','← Voltar para '+H.t,function(){show(h,true)}),w.firstChild);
+      if(i>0){var p=H.ids[i-1];n.appendChild(el('button','','<small>Anterior</small>← '+TBt[p].textContent,function(){show(p,true)}))}
+      if(i<H.ids.length-1){var q=H.ids[i+1],nb=el('button','','<small>Próxima</small>'+TBt[q].textContent+' →',function(){show(q,true)});nb.style.textAlign='right';n.appendChild(nb)}
+      w.appendChild(n)})});
+  var gbar=el('div','grp');gbar.id='grp';
+  [['Início','inicio'],['Aulas','hubA'],['Praticar','hubP'],['Consultar','hubC']].forEach(function(t,i){var b=el('button','gb',t[0],function(){show(t[1],true)});b.setAttribute('data-g',i);gbar.appendChild(b)});
+  TB.parentNode.insertBefore(gbar,TB);
+  function arch(id){var gi=GN[id]||0;gbar.querySelectorAll('.gb').forEach(function(b){b.setAttribute('aria-selected',String(+b.getAttribute('data-g')===gi))});S.last=id;try{localStorage.setItem(SK,JSON.stringify(S))}catch(e){}}
+  function dash(){var d=document.getElementById('dn');if(!d||typeof M==='undefined')return;
+    d.innerHTML='Nível '+(lvl()+1)+' · '+LV[lvl()][0]+' · '+S.xp+' XP<br>Missões: '+Object.keys(S.m).length+' de '+M.length+'<br>Quiz: '+Object.keys(S.q).length+' de '+Q.length+' acertadas<br>Etapas do roteiro: '+Object.keys(S.st).length+' de 6'}
+  var dc=document.getElementById('dcont');if(dc)dc.addEventListener('click',function(){show(S.last||'ia',true)});
+  dash();
+  var panels=["inicio","hubA","hubP","hubC","ia","codar","skills","apps","sites","aulaia","auladev","aulapro","aulaweb","aulaia2","prompts","missoes","quiz","gloss","extra","roteiro","faq"];
   var tabbar=document.getElementById("tabbar");
   var bld=document.querySelector(".builder"), iaw=document.querySelector("#ia .wrap");
   iaw.insertBefore(bld,iaw.querySelector(".pcm"));
   function show(id,scroll){
-    if(panels.indexOf(id)<0)id="ia";
+    if(panels.indexOf(id)<0)id="inicio";
     panels.forEach(function(p){document.getElementById(p).hidden=(p!==id)});
     document.querySelectorAll(".tab").forEach(function(t){t.setAttribute("aria-selected",t.getAttribute("data-tab")===id?"true":"false")});
     try{history.replaceState(null,"","#"+id)}catch(e){}
+    arch(id);
     if(scroll)document.querySelector(".tabsw").scrollIntoView({block:"start"});
   }
   document.querySelectorAll(".tab").forEach(function(t){t.addEventListener("click",function(){show(t.getAttribute("data-tab"),true)})});
